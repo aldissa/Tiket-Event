@@ -21,6 +21,17 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    protected $guarded = ['id'];
+    
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function detailOrders()
+    {
+        return $this->hasMany(DetailOrder::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.
